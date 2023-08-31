@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>i travel</title>
+  <link rel="stylesheet" href="itravel.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <nav class="navbar"></nav>
+  <nav class="navbar container-fluid">
+    <div class="left_icons">
+      <div class="back_arrow">
+        <img src="img/icons8-four-squares-24.png" alt="" />
+      </div>
+      <img class="left_logo" src="img/logo2.png" alt="" />
+    </div>
+
+    <div class="right_icons">
+      <i class="fa-solid fa-magnifying-glass magnifying-glass_icon"></i>
+      <i class="fa-solid fa-bell bell_icon"></i>
+      <div class="profile">
+        <img class="profile" src="img/profile.jpg" alt="" />
+      </div>
+    </div>
+  </nav>
+  <div class="itravel_heading container-fluid">
+    <i class="fa-solid fa-chevron-left itravel_back_arrow"></i>
+    <p class="itravel_heading_text">New travel application</p>
+  </div>
+  <div class="p-2">
+    <p class="itravel_hello_text">Hello, Yogesh.</p>
+    <p class="itravel_text2">Let's plan your trip!</p>
+  </div>
+  <div class="textarea container-fluid">
+    <textarea id="textarea1" class="textarea1 d-block mt-2 mb-2 mx-auto w-100" rows="1" maxlength="50"
+      placeholder="Add a title"></textarea>
+    <textarea id="textarea2" class="textarea1 d-block mt-2 mb-2 mx-auto w-100" rows="3" maxlength="100"
+      placeholder="Describe the purpose of your visit"></textarea>
+  </div>
+ 
+  <div class="date_main_div container-fluid">
+    <p class="d-inline small fw-bold">What are your travel dates?<p class="text-danger d-inline fw-bold">*</p></p>
+    <label class="text-warning" for="from">From</label>
+    <div class="row border container-fluid mx-auto from_date_time">
+      <input class="date col-6" type="date" name="from">
+      <div class="col-6 time-picker">
+        <div class="tp-col tp-hr">
+          <i class="fa-solid fa-chevron-up tp-up-arrow"></i>
+          <span class="noselect" tabindex="0*">00</span>
+          <i class="fa-solid fa-chevron-down tp-down-arrow"></i>
+         
+        </div>
+        <div class="tp-col">
+          <span>:</span>
+        </div>
+        <div class="tp-col tp-min">
+          <i class="fa-solid fa-chevron-up tp-up-arrow"></i>
+          <span tabindex="0">00</span>
+          <i class="fa-solid fa-chevron-down tp-down-arrow"></i>
+        </div>
+        <div class="tp-col tp-AM-PM1">
+          <i class="fa-solid fa-chevron-up tp-up-arrow"></i>
+          <span class="tp-am-pm">AM</span>
+          <i class="fa-solid fa-chevron-down tp-down-arrow"></i>
+        </div>
+      </div>
+    </div>
+    <label class="text-warning" for="to">To</label>
+    <div class="row border container-fluid mx-auto from_date_time">
+      <input class="date col-6" type="date" name="to">
+      <div class="col-6 time-picker">
+        <div class="tp-col tp-hr2">
+          <i class="fa-solid fa-chevron-up tp-up-arrow"></i>
+          <span class="noselect" tabindex="0*">00</span>
+          <i class="fa-solid fa-chevron-down tp-down-arrow"></i>
+         
+        </div>
+        <div class="tp-col">
+          <span>:</span>
+        </div>
+        <div class="tp-col tp-min2">
+          <i class="fa-solid fa-chevron-up tp-up-arrow"></i>
+          <span tabindex="0">00</span>
+          <i class="fa-solid fa-chevron-down tp-down-arrow"></i>
+        </div>
+        <div class="tp-col tp-AM-PM">
+          <i class="fa-solid fa-chevron-up tp-up-arrow"></i>
+          <span class="tp-am-pm2">AM</span>
+          <i class="fa-solid fa-chevron-down tp-down-arrow"></i>
+        </div>
+      </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var c_time = ct(new Date());
+    var hr = parseInt(c_time.split(':')[0]);
+    var min = parseInt(c_time.split(':')[1]);
+    var meridiem = c_time.split(':')[2];
+
+    document.querySelector('.tp-min > span').innerHTML = min < 10 ? '0' + min : min;
+    document.querySelector('.tp-hr > span').innerHTML = hr;
+    document.querySelector('.tp-am-pm').innerHTML = meridiem;
+
+    document.querySelector('.tp-hr > .tp-up-arrow').addEventListener('click', function () {
+      hr = parseInt(document.querySelector('.tp-hr > span').innerHTML);
+      hr = hr === 1 ? 12 : hr - 1;
+      document.querySelector('.tp-hr > span').innerHTML = hr;
+    });
+
+    document.querySelector('.tp-min > .tp-up-arrow').addEventListener('click', function () {
+      min = parseInt(document.querySelector('.tp-min > span').innerHTML);
+      min = min === 0 ? 59 : min - 1;
+      document.querySelector('.tp-min > span').innerHTML = min < 10 ? '0' + min : min;
+    });
+
+    document.querySelector('.tp-AM-PM1 > .tp-up-arrow').addEventListener('click', function () {
+      meridiem = parseInt(document.querySelector('.tp-AM-PM1 > span').innerHTML);
+      meridiem = meridiem === 'AM' ? 'PM' : 'AM';
+      document.querySelector('.tp-am-pm').innerHTML = meridiem;
+    });
+
+    document.querySelector('.tp-hr > .tp-down-arrow').addEventListener('click', function () {
+      hr = parseInt(document.querySelector('.tp-hr > span').innerHTML);
+      hr = hr === 12 ? 1 : hr + 1;
+      document.querySelector('.tp-hr > span').innerHTML = hr;
+    });
+
+    document.querySelector('.tp-min > .tp-down-arrow').addEventListener('click', function () {
+      min = parseInt(document.querySelector('.tp-min > span').innerHTML);
+      min = min === 59 ? 0 : min +  1;
+      document.querySelector('.tp-min > span').innerHTML = min < 10 ? '0' + min : min;
+    });
+
+    document.querySelector('.tp-AM-PM1 > .tp-down-arrow').addEventListener('click', function () {
+      meridiem = parseInt(document.querySelector('.tp-AM-PM1 > span').innerHTML);
+      meridiem = meridiem === 'AM' ? 'PM' : 'PM';
+      document.querySelector('.tp-am-pm').innerHTML = meridiem;
+    });
+  
+
+  });
+
+  function exitHr(a, b) {
+    a.blur();
+    b.removeEventListener('keyup');
+    document.querySelector('.tp-min > span').click();
+  }
+
+  function exitMin(a, b) {
+    a.blur();
+    b.removeEventListener('keyup');
+  }
+
+  function ct(date) {
+    var hrs = date.getHours();
+    var mns = date.getMinutes();
+    var mer = hrs >= 12 ? 'PM' : 'AM';
+    hrs = hrs % 12;
+    hrs = hrs ? hrs : 12;
+    mns = mns < 10 ? '0' + mns : mns;
+    return hrs + ':' + mns + ':' + mer;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var c_time = ct(new Date());
+    var hr = parseInt(c_time.split(':')[0]);
+    var min = parseInt(c_time.split(':')[1]);
+    var meridiem = c_time.split(':')[2];
+
+    document.querySelector('.tp-min2 > span').innerHTML = min < 10 ? '0' + min : min;
+    document.querySelector('.tp-hr2 > span').innerHTML = hr;
+    document.querySelector('.tp-am-pm2').innerHTML = meridiem;
+
+    document.querySelector('.tp-hr2 > .tp-up-arrow').addEventListener('click', function () {
+      hr = parseInt(document.querySelector('.tp-hr2 > span').innerHTML);
+      hr = hr === 1 ? 12 : hr - 1;
+      document.querySelector('.tp-hr2 > span').innerHTML = hr;
+    });
+
+    document.querySelector('.tp-min2 > .tp-up-arrow').addEventListener('click', function () {
+      min = parseInt(document.querySelector('.tp-min2 > span').innerHTML);
+      min = min === 0 ? 59 : min - 1;
+      document.querySelector('.tp-min2 > span').innerHTML = min < 10 ? '0' + min : min;
+    });
+
+    document.querySelector('.tp-AM-PM > .tp-up-arrow').addEventListener('click', function () {
+      meridiem = parseInt(document.querySelector('.tp-AM-PM > span').innerHTML);
+      meridiem = meridiem === 'AM' ? 'PM' : 'AM';
+      document.querySelector('.tp-am-pm2').innerHTML = meridiem;
+    });
+
+    document.querySelector('.tp-hr2 > .tp-down-arrow').addEventListener('click', function () {
+      hr = parseInt(document.querySelector('.tp-hr2 > span').innerHTML);
+      hr = hr === 12 ? 1 : hr + 1;
+      document.querySelector('.tp-hr2 > span').innerHTML = hr;
+    });
+
+    document.querySelector('.tp-min2 > .tp-down-arrow').addEventListener('click', function () {
+      min = parseInt(document.querySelector('.tp-min2 > span').innerHTML);
+      min = min === 59 ? 0 : min +  1;
+      document.querySelector('.tp-min2 > span').innerHTML = min < 10 ? '0' + min : min;
+    });
+    
+    document.querySelector('.tp-AM-PM > .tp-down-arrow').addEventListener('click', function () {
+      meridiem = parseInt(document.querySelector('.tp-AM-PM > span').innerHTML);
+      meridiem = meridiem === 'AM' ? 'PM' : 'PM';
+      document.querySelector('.tp-am-pm2').innerHTML = meridiem;
+    });
+  
+
+  });
+
+  function exitHr(a, b) {
+    a.blur();
+    b.removeEventListener('keyup');
+    document.querySelector('.tp-min2 > span').click();
+  }
+
+  function exitMin(a, b) {
+    a.blur();
+    b.removeEventListener('keyup');
+  }
+
+  function ct(date) {
+    var hrs = date.getHours();
+    var mns = date.getMinutes();
+    var mer = hrs >= 12 ? 'PM' : 'AM';
+    hrs = hrs % 12;
+    hrs = hrs ? hrs : 12;
+    mns = mns < 10 ? '0' + mns : mns;
+    return hrs + ':' + mns + ':' + mer;
+  }
+
+</script>
+
+</html>

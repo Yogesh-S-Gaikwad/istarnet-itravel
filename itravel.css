@@ -1,0 +1,172 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.top_nav{
+    /* height: 2rem; */
+}
+.navbar{
+    height: 4rem;
+    background-color: #b5020b;
+    justify-content: space-between;
+}
+.back_arrow{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: rgba(207, 194, 194, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back_arrow_icon,.home_arrow_icon{
+    color: white;
+    
+}
+.nav_apps{
+    color: white;
+    text-decoration: none;
+}
+
+
+.page4-option{
+    border: 2px solid transparent;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    width: auto;
+    height: 6rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+    background-color: rgba(207, 194, 194, 0.5);
+   
+  }
+  
+.page4-option:hover{
+    .icon_color{
+        color: white;
+    }
+    color: white;
+    background-color:rgb(209, 52, 52);
+    text-align: center ;
+}
+
+.page-4-text{
+    width: 50%;
+    text-align: center;
+    color: white;
+    
+}
+.main_sec p{
+    margin: 0;
+}
+.icon_color{
+    color: #b5020b ;
+}
+.bell_icon,.magnifying-glass_icon{
+    color: white;
+    margin-right: 0.5rem;
+    padding: rem;
+}
+.right_icons{
+    display: flex;
+    align-items: center;
+}
+.profile{
+ height: 2rem;
+ width: 2rem;
+ border-radius: 50%;
+ background-color:black;
+}
+.left_logo{
+    height:1.5rem ;
+    width: 6rem;
+    margin-left: 1rem;
+}
+.left_icons{
+    display: flex;
+    align-items: center;
+
+}
+.itravel_heading{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.itravel_heading_text{
+    margin-bottom: 0%;
+   margin-left: 1rem;
+   font-size: small;
+}
+.itravel_hello_text{
+    display: inline;
+    font-weight: 600;
+    
+   
+}
+.itravel_text2{
+    display: inline;
+    color: #ccc;
+    
+   
+}
+.textarea1{
+    font-size: small;
+}
+
+.date{
+    width: 50%;
+    border: transparent;
+}
+.from_date_time{
+    border-radius: 4px;
+}
+    /* ----------time-picker----------- */
+
+
+.time-picker {
+    display:flex;
+    align-items:center;
+    /* margin:0 auto; */
+    width:50%;
+    justify-content:space-evenly;
+    /* border:1px solid #ccc; */
+    border-radius:10px;
+    padding:1rem;
+  }
+  .tp-col {
+    display:flex;
+    flex-direction:column;
+    align-items: inherit;
+  }
+  /* .tp-hr>span,.tp-min>span {
+    
+    padding:4px 4px ;
+    border-radius:4px;
+    width:25px;
+    text-align:center;
+    font-size:15pt;
+  } */
+  .tp-up-arrow,.tp-down-arrow {
+    cursor:pointer;
+   
+  }
+  /* .tp-am-pm {
+    cursor:pointer;
+    display:block;
+    padding:6px 3px;
+    border-radius:5px;
+    width: 2rem;
+    text-align: center;
+  } */
+  .tp-am-pm:hover {
+    background:#eaeaea;
+  }
+  .tp-hr,.tp-min {
+    
+  }
