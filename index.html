@@ -108,6 +108,16 @@
     var hr = parseInt(c_time.split(':')[0]);
     var min = parseInt(c_time.split(':')[1]);
     var meridiem = c_time.split(':')[2];
+    
+    function ct(date) {
+      var hrs = date.getHours();
+      var mns = date.getMinutes();
+      var mer = hrs >= 12 ? 'PM' : 'AM';
+      hrs = hrs % 12;
+      hrs = hrs ? hrs : 12;
+      mns = mns < 10 ? '0' + mns : mns;
+      return hrs + ':' + mns + ':' + mer;
+    }
 
     document.querySelector('.tp-min > span').innerHTML = min < 10 ? '0' + min : min;
     document.querySelector('.tp-hr > span').innerHTML = hr;
@@ -148,36 +158,6 @@
       meridiem = meridiem === 'AM' ? 'PM' : 'PM';
       document.querySelector('.tp-am-pm').innerHTML = meridiem;
     });
-  
-
-  });
-
-  function exitHr(a, b) {
-    a.blur();
-    b.removeEventListener('keyup');
-    document.querySelector('.tp-min > span').click();
-  }
-
-  function exitMin(a, b) {
-    a.blur();
-    b.removeEventListener('keyup');
-  }
-
-  function ct(date) {
-    var hrs = date.getHours();
-    var mns = date.getMinutes();
-    var mer = hrs >= 12 ? 'PM' : 'AM';
-    hrs = hrs % 12;
-    hrs = hrs ? hrs : 12;
-    mns = mns < 10 ? '0' + mns : mns;
-    return hrs + ':' + mns + ':' + mer;
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var c_time = ct(new Date());
-    var hr = parseInt(c_time.split(':')[0]);
-    var min = parseInt(c_time.split(':')[1]);
-    var meridiem = c_time.split(':')[2];
 
     document.querySelector('.tp-min2 > span').innerHTML = min < 10 ? '0' + min : min;
     document.querySelector('.tp-hr2 > span').innerHTML = hr;
@@ -218,31 +198,13 @@
       meridiem = meridiem === 'AM' ? 'PM' : 'PM';
       document.querySelector('.tp-am-pm2').innerHTML = meridiem;
     });
-  
 
   });
 
-  function exitHr(a, b) {
-    a.blur();
-    b.removeEventListener('keyup');
-    document.querySelector('.tp-min2 > span').click();
-  }
+  
+ 
 
-  function exitMin(a, b) {
-    a.blur();
-    b.removeEventListener('keyup');
-  }
-
-  function ct(date) {
-    var hrs = date.getHours();
-    var mns = date.getMinutes();
-    var mer = hrs >= 12 ? 'PM' : 'AM';
-    hrs = hrs % 12;
-    hrs = hrs ? hrs : 12;
-    mns = mns < 10 ? '0' + mns : mns;
-    return hrs + ':' + mns + ':' + mer;
-  }
-
+  
 </script>
 
 </html>
