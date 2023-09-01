@@ -122,6 +122,7 @@ body{
 .date{
     width: 50%;
     border: transparent;
+    background-color: transparent;
 }
 .from_date_time{
     border-radius: 4px;
